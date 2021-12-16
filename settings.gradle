@@ -1,0 +1,4 @@
+rootProject.name = 'ExercisesScala'
+include 'ScalaBeginner'
+include 'ScalaAdvanced'
+
