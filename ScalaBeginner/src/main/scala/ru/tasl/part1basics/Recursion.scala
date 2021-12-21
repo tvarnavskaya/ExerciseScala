@@ -51,6 +51,30 @@ object Recursion extends App {
     factHelper(n, 1)
   }
 
+  def fibonacciTailRec(n: Int): Int = {
+    @tailrec
+    def fiboTailRec(i: Int, last: Int, nexToLast: Int): Int = {
+      if (i >= n) last
+      else fiboTailRec(i + 1, last + nexToLast, last)
+    }
+    if (n <= 2) 1
+    else fiboTailRec(2, 1, 1)
+  }
+
+  println(s"fibonacciTailRec=${fibonacciTailRec(5)}")
+
+
+  def isPrimeTailRec(n: Int): Boolean = {
+    @tailrec
+    def isPrimeUntilTailRec(t: Int, isStillPrime: Boolean): Boolean =
+      if (!isStillPrime) false
+      else if (t <= 1) true
+      else isPrimeUntilTailRec(t - 1, n % t != 0 && isStillPrime)
+
+    isPrimeUntilTailRec(n / 2, true)
+  }
+
+
   val startTime: Long = System.nanoTime()
   println(anotherFactorial(5000))
   val endTime: Long = System.nanoTime()
@@ -68,4 +92,5 @@ object Recursion extends App {
    * переписать фибоначи и вычисление, является ли число простым на хвостовую рекурсию
    *
    */
+
 }
