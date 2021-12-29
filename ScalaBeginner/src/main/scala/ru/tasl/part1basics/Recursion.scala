@@ -93,4 +93,18 @@ object Recursion extends App {
    *
    */
 
+
+
+  def pow(a: Int, b: Int, accumulator: Int = 1):Int = {
+    if (b == 0) 1
+    else if (b == 1) a * accumulator
+    else pow(a, b - 1, accumulator * a)
+  }
+
+  val test = pow(4, 3)
+  println(s"test=$test")
+
+  // pow(5, 3, 1)
+  // pow(5, 2, 5)
+  // pow(5, 1, 5 * 5)
 }
