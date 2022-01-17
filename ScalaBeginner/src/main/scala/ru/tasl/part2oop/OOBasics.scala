@@ -2,6 +2,13 @@ package ru.tasl.part2oop
 
 object OOBasics extends App {
 
+  val test: Option[String] = None
+  val dt = test match {
+    case Some("task") => 1
+    case Some("workflow") => 2
+    case _ => throw new RuntimeException("not valid value")
+  }
+  System.exit(0)
   val person = new Person("John", 26)
   println(person)
   println(person.age)
