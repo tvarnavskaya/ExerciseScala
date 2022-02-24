@@ -45,3 +45,5 @@ class Inheritance extends App {
   // 2 - use final on class
   // 3 - yse sealed
 }
+
+class Writer (name: String)

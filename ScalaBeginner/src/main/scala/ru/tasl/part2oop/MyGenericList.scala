@@ -21,6 +21,7 @@ abstract class MyGenericList[+A] {
   def filter(predicate: MyPredicate[A]): MyGenericList[A]
   def flatMap[B](transformer: MyTransformer[A, MyGenericList[B]]): MyGenericList[B]
 
+
   def ++[B >: A](list: MyGenericList[B]): MyGenericList[B]
 }
 
@@ -39,7 +40,7 @@ case object EmptyGeneric extends MyGenericList[Nothing] {
   override def add[B >: Nothing](el: B): MyGenericList[B] = new ConsGeneric(el, EmptyGeneric)
   override def printElements: String = ""
 
-  def map[B](transformer: MyTransformer[Nothing, B]): MyGenericList[B] = EmptyGeneric
+  def map[B](transformer: MyTransformer[Nothing, B]) : MyGenericList[B] = EmptyGeneric
   def filter(predicate: MyPredicate[Nothing]): MyGenericList[Nothing] = EmptyGeneric
   def flatMap[B](transformer: MyTransformer[Nothing, MyGenericList[B]]): MyGenericList[B] = EmptyGeneric
 
